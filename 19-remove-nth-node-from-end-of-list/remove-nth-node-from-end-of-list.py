@@ -4,6 +4,7 @@ class ListNode:
         self.val = val
         self.next = next
 class Solution:
+    # solution
     def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         if head == None or head.next == None :
             return None
