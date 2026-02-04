@@ -10,7 +10,6 @@ class Solution:
         prev_group = dummy
 
         while True:
-            # find kth node
             kth = prev_group
             for _ in range(k):
                 kth = kth.next
@@ -18,8 +17,6 @@ class Solution:
                     return dummy.next
 
             next_group = kth.next
-
-            # reverse group
             prev = next_group
             curr = prev_group.next
             while curr != next_group:
@@ -27,8 +24,6 @@ class Solution:
                 curr.next = prev
                 prev = curr
                 curr = nxt
-
-            # reconnect
             temp = prev_group.next
             prev_group.next = kth
             prev_group = temp
