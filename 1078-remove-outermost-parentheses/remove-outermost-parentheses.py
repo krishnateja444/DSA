@@ -8,7 +8,7 @@ class Solution:
             if s[i] == "(" :
                 c += 1
                 i += 1
-            if s[i] == ")" :
+            elif s[i] == ")" :
                 c -= 1
                 i += 1
             if c == 0 :
