@@ -4,7 +4,8 @@ class Solution:
         t = 0
         for i in range(len(nums)):
             if nums[i] != 0 :
-                nums[t] = nums[i]
+                if i != t :
+                    nums[t] = nums[i]
                 t += 1
         for i in range(n-t):
             if t < len(nums):
