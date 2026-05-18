@@ -8,6 +8,8 @@ class Solution:
             else :
                 nums[t] = nums[i]
                 t += 1
-        nums[:] = nums[:t] + [0 for i in range(k)]
-
+        for i in range(k):
+            if t < len(nums):
+                nums[t] = 0
+                t = t + 1
         
