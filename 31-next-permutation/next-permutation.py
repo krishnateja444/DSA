@@ -13,7 +13,7 @@ class Solution:
             if nums[j] > nums[i-1] :
                 nums[j],nums[i-1] = nums[i-1],nums[j]
                 break
-        nums[i:] = sorted(nums[i:])
+        nums[i:] = nums[i:][::-1]
         return 
         
         
