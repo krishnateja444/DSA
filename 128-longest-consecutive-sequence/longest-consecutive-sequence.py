@@ -3,18 +3,18 @@ class Solution:
         d = {}
         if len(nums) == 0 :
             return 0
-        for num in nums :
-            d[num] = num
+        num_set = set(nums)
         max_l = 1
         curr = 0
-        for key in d :
-            if d[key] - 1 not in d and d[key] + 1 in d :
-                x = d[key]
-                while x in d :
+        for num in num_set :
+            x = num
+            curr = 0
+            if num - 1 not in num_set and num + 1 in num_set :
+                
+                while x in num_set :
                     curr += 1
                     x += 1
                 max_l = max(max_l,curr)
-                curr = 0
         return max_l
 
 
