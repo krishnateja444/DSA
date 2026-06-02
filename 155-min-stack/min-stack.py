@@ -2,10 +2,10 @@ class MinStack:
 
     def __init__(self):
         self.stack = []
-        self.min_i = [0]
+        self.min_i = []
     def push(self, val: int) -> None:
         self.stack.append(val)
-        if val <= self.stack[self.min_i[-1]] :
+        if not self.min_i or val <= self.stack[self.min_i[-1]] :
             self.min_i.append(len(self.stack) - 1)
     
              
