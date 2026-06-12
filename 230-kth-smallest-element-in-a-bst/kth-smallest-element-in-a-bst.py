@@ -9,15 +9,13 @@ class Solution:
         node_val = []
         if not root :
             return 
-        def pre_order(root):
+        def inorder(root):
             if not root :
                 return 
+            inorder(root.left)
             node_val.append(root.val)
-            pre_order(root.left)
-            pre_order(root.right)
-        pre_order(root)
-        node_val.sort()
-
+            inorder(root.right)
+        inorder(root)
         return node_val[k-1]
             
         
