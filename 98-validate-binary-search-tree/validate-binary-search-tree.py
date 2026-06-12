@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        temp = -(2**31) - 1
+        temp = float('-inf')
         #l = []
         def inorder(node):
             nonlocal temp
