@@ -8,9 +8,9 @@ class Solution:
         import heapq
         heap = []
         for src in range(n):
+            heap = [(0,src)] ## weight,node
             dist = [float('inf')]*n
             dist[src] = 0
-            heapq.heappush(heap,(0,src))   ## weight,node
             while heap :
                 wt,node = heapq.heappop(heap)
                 if wt >= distanceThreshold :
