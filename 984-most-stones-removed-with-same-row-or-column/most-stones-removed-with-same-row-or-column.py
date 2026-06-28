@@ -26,6 +26,6 @@ class Solution:
                     unionbyrank(i,j)
         comp = 0
         for i in range(n):
-            if parent[i] == i :
+            if findpar(i) == i :
                 comp += 1
         return n - comp
