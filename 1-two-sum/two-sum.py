@@ -1,7 +1,11 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+        mp = {}
         for i in range(len(nums)):
-            if (target - nums[i]) in nums and i != nums.index(target - nums[i])  :
-                return [i,nums.index(target - nums[i])]
+            comp = target - nums[i]
+            if comp in mp :
+                return [i,mp[comp]]
+            mp[nums[i]] = i
+        
 
         
