@@ -7,17 +7,21 @@ class Solution:
             if n == 2 :
                 return '11'
             prev = cns(n-1)
-            ans = ''
+            ans = []
             c = 1
             for i in range(1,len(prev)): 
                 if prev[i-1] == prev[i] :
                     c += 1
                 else :
-                    ans += str(c) + prev[i-1]
+                    #ans += str(c) + prev[i-1]
+                    ans.append(c)
+                    ans.append(prev[i-1])
                     c = 1
             
-            ans += str(c) + prev[-1]
-            return ans
+            #ans += str(c) + prev[-1]
+            ans.append(c)
+            ans.append(prev[-1])
+            return ''.join(map(str,ans))
         return cns(n)
 
 
