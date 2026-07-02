@@ -15,5 +15,3 @@ class Solution:
                 break
         nums[i:] = nums[i:][::-1]
         return 
-        
-        
