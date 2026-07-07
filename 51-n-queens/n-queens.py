@@ -30,10 +30,8 @@ class Solution:
                 ans.append(final[:])
                 return
             for col in range(n):
-                board[row][col] = 'Q'
-                if not issafe(row,col):
-                    board[row][col] = '.'    
-                else :
+                if issafe(row,col):
+                    board[row][col] = 'Q'  
                     bt(row+1)
                     board[row][col] = '.'
         bt(0)
