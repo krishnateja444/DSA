@@ -8,14 +8,15 @@ class Solution:
                 continue
             q = deque()
             q.append((start,0))
+            ans[start] = 0
         #visited = [False]*(n)
             while q :
                 node,c = q.popleft()
-                ans[node] = c
             #visited[node] = True
                 for nei in adj[node]:
                     if ans[nei] == c :
                         return False
                     if ans[nei] == -1 :
+                        ans[nei] = 1- c
                         q.append((nei,1 - c))
         return True
