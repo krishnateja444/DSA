@@ -24,18 +24,25 @@ class Solution:
             if p :
                 intervals.append([start[ch],r])
         print(intervals)
-        intervals.sort()
-        last_interval = intervals[0][1]
-        ans = [intervals[0]]
-        for i in range(1,len(intervals)):
-            if intervals[i][0] > last_interval :
-                ans.append(intervals[i])
-                last_interval = intervals[i][1]
-            else :
-                if last_interval >= intervals[i][1] :
-                    ans.pop()
-                    ans.append(intervals[i])
-                    last_interval = intervals[i][1]
+        #intervals.sort()
+        #last_interval = intervals[0][1]
+        #ans = [intervals[0]]
+        #for i in range(1,len(intervals)):
+        #    if intervals[i][0] > last_interval :
+        #        ans.append(intervals[i])
+        #        last_interval = intervals[i][1]
+        #    else :
+        #        if last_interval >= intervals[i][1] :
+        #            ans.pop()
+        #            ans.append(intervals[i])
+        #            last_interval = intervals[i][1]
+        intervals.sort(key = lambda x : x[1])
+        last_end = -1
+        ans = []
+        for l,r in intervals :
+            if l > last_end :
+                ans.append([l,r])
+                last_end = r
         res = []
         for start,end in ans :
             res.append(s[start:end+1])
