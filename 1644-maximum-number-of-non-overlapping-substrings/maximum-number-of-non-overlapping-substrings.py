@@ -20,7 +20,7 @@ class Solution:
             for i in range(start[ch],r+1):
                 if start[ch] > start[s[i]] :
                     p = False
-                    continue
+                    break
             if p :
                 intervals.append([start[ch],r])
         print(intervals)
