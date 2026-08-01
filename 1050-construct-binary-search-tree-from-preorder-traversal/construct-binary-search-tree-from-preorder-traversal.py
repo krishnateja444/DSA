@@ -7,25 +7,19 @@
 class Solution:
     def bstFromPreorder(self, preorder: List[int]) -> Optional[TreeNode]:
         root = TreeNode(preorder[0])
-        def insert(root,val):
-            if not root :
-                return TreeNode(val)
-            if root.val > val :
-                root.left = insert(root.left,val)
-            elif root.val < val :
-                root.right = insert(root.right,val)
-            return root
-        for num in preorder :
-            insert(root,num)
+        stack = [root]
+        for num in preorder[1:] :
+            new = TreeNode(num)
+            if stack[-1].val > num :
+                stack[-1].left = new
+            else :
+                parent = None
+                while stack and stack[-1].val < num :
+                    parent = stack.pop()
+                parent.right = new
+            stack.append(new)
         return root
 
-    
-
-        
-
-
-
-            
 
         
         
