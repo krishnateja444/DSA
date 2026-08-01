@@ -10,10 +10,8 @@ class Solution:
         def dfs(node):
             if not node :
                 return
-            if node == p :
-                return p
-            if node == q :
-                return q
+            if node == p or node == q :
+                return node
             left = dfs(node.left)  
             right = dfs(node.right)
             if (left == p and right == q) or (left == q and right == p) :
