@@ -14,6 +14,8 @@ class Solution:
             for i in range(len(word)):
                 org = word[i]
                 for ch in "abcdefghijklmnopqrstuvwxyz" :
+                    if ch == org :
+                        continue
                     word[i] = ch
                     if ("".join(word)) in wordList :
                         q.append(("".join(word),steps + 1))
