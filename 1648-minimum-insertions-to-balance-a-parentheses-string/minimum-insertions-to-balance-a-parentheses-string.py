@@ -1,37 +1,21 @@
-class Solution:
-    def minInsertions(self, s: str) -> int:
-        l_c = 0
+class Solution(object):
+    def minInsertions(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
         ans = 0
-        i = 0
-        while i < len(s):
-            ch = s[i]
+        need = 0
+        for ch in s :
             if ch == '(':
-                l_c += 1
-            else :
-                if i < len(s) - 1 :
-                    if s[i+1] == s[i] :
-                        if l_c > 0 :
-                            l_c -= 1
-                        else :
-                            ans += 1
-                        i += 1
-                    else :
-                        ans += 1
-                        if l_c <= 0 :
-                            ans += 1
-                        else :
-                            l_c -= 1
-                else:
+                need += 2
+                if need %2 == 1 :
                     ans += 1
-                    if l_c > 0 :
-                        l_c -= 1
-                    else :
-                        ans += 1
-            i += 1
-
-        return ans + 2*l_c
-
-                    
-
-
+                    need -= 1
+            else :
+                need -= 1
+                if need < 0 :
+                    ans += 1
+                    need = 1
+        return ans + need
         
