@@ -7,17 +7,16 @@ class Solution:
             else :
                 if not (min(nums[i],nums[i-1])==0 and max(nums[i],nums[i-1])==n-1):
                     return -1
-        l = nums + nums
         need = len(nums)
         asc = False
         dec = False
         c = 1
         index = 0
         for i in range(1,2*n):
-            if abs(l[i] - l[i-1]) == 1 :
+            if abs(nums[i%n] - nums[(i-1)%n]) == 1 :
                 c += 1
                 if c == need :
-                    if l[i] > l[i-1] :
+                    if nums[i%n] > nums[(i-1)%n] :
                         asc = True
                         index = i
                         break
