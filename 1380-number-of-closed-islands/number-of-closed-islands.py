@@ -2,23 +2,28 @@ class Solution:
     def closedIsland(self, grid: list[list[int]]) -> int:
         m = len(grid)
         n = len(grid[0])
-        visited = [[False]*(n) for _ in range(m)]
         def dfs(i,j):
-            visited[i][j] = True
-            closed = ( i != 0 and i != m-1 and j != 0 and j!= n-1)
-            dr = {(-1,0),(1,0),(0,-1),(0,1)}
+            grid[i][j] = 1
+            dr = [(-1,0),(1,0),(0,1),(0,-1)]
             for x,y in dr :
-                if 0 <= (i+x) < m and 0 <= (j+y) < n and grid[i+x][j+y] == 0 and not visited[i+x][j+y] :
-                    nei_closed = dfs(i+x,j+y)
-                    closed = closed and nei_closed
-            return closed
+                nr = i + x
+                nc = j + y
+                if 0<= nr < m-1 and 0 <= nc < n-1 and grid[nr][nc] == 0 :
+                    dfs(nr,nc)
+        for j in range(n):
+            if grid[0][j] == 0 :
+                dfs(0,j)
+            if grid[m-1][j] == 0 :
+                dfs(m-1,j)
+        for i in range(m):
+            if grid[i][0] == 0 :
+                dfs(i,0)
+            if grid[i][n-1] == 0 :
+                dfs(i,n-1)
         ans = 0
         for i in range(1,m-1):
             for j in range(1,n-1):
-                if grid[i][j] == 0 and not visited[i][j] :
-                    if dfs(i,j):
-                        print(i,j)
-                        ans += 1
-        return ans 
-        
-        
+                if grid[i][j] == 0 :
+                    dfs(i,j)
+                    ans += 1
+        return ans
